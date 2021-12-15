@@ -5,9 +5,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
+import static org.mockito.stubbing.Stubbing.*;
 
 class UsualCheckerTest {
 
@@ -15,7 +16,7 @@ class UsualCheckerTest {
     private IChecker checker = null;
 
     @BeforeEach
-    private void setUp(){
+    private void setUp() {
         ticket = mock(ITicket.class);
         checker = new UsualChecker();
     }
