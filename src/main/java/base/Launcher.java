@@ -1,8 +1,9 @@
 package base;
 
+import base.config.BaseConfig;
 import base.service.IExaminer;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,7 +15,7 @@ public class Launcher {
 
     public static void main(String[] args) {
         ApplicationContext context =
-                new ClassPathXmlApplicationContext("base.xml");
+                new AnnotationConfigApplicationContext(BaseConfig.class);
         IExaminer examiner = context.getBean("examiner", IExaminer.class);
         Map<String, Double> map = examiner.getResults();
         List<Map.Entry<String, Double>> list = new ArrayList<>(map.entrySet());
