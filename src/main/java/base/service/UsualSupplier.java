@@ -2,6 +2,8 @@ package base.service;
 
 import base.domain.ITicket;
 import base.domain.UsualTicket;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,11 +14,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class UsualSupplier implements ISupplier{
 
     String questionList;
 
-    public UsualSupplier(String questionList) {
+    public UsualSupplier(@Value("${questionList}") String questionList) {
         this.questionList = questionList;
     }
 

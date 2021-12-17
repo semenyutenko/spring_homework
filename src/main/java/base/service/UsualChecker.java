@@ -1,7 +1,9 @@
 package base.service;
 
 import base.domain.ITicket;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsualChecker implements IChecker {
     @Override
     public boolean isRight(ITicket ticket, String answer) {

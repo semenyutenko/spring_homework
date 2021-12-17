@@ -1,9 +1,12 @@
 package base.service;
 
 import base.domain.ITicket;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class UsualExaminer implements IExaminer {
 
     private final ISupplier supplier;
@@ -17,7 +20,7 @@ public class UsualExaminer implements IExaminer {
                          IChecker checker,
                          IGreetingMaker greetingMaker,
                          IResultCounter resultCounter,
-                         int amountQuestions) {
+                         @Value("${amountQuestions}") int amountQuestions) {
         this.supplier = supplier;
         this.checker = checker;
         this.greetingMaker = greetingMaker;
